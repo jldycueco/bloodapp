@@ -51,6 +51,7 @@ const Chart = styled.View`
   width: 90%;
   margin-bottom: 20px;
   border-radius: 10px;
+  border: 1px solid;
 `;
 
 const RequestContainer = styled.View`
@@ -88,11 +89,11 @@ const UserContainer = ({bloodType, name, age, gender, distance, time}) => {
         </BloodContainer>
         <NameContainer>
           <View>
-            <Text>{name}</Text>
+            <Text style = {{fontSize: 16, fontWeight: 'bold'}}>{name}</Text>
           </View>
           <View>
             <Text>
-              {age}yrs {gender} {distance}km {time}hrs
+              {age}yrs • {gender} • {distance}km • {time}hrs
             </Text>
           </View>
         </NameContainer>
@@ -146,7 +147,7 @@ const App = () => {
     <>
       <View style={{flex: 1}}>
         <RedBackground>
-          <Text style={{color: '#fff', fontSize: 18, margin: 5}}>Blood Requests</Text>
+          <Text style={{color: '#fff', fontSize: 18, margin: 5, fontWeight: 'bold'}}>Blood Requests</Text>
           <Chart>
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <View style ={{flexDirection: 'row', margin: 20}}>
