@@ -6,7 +6,7 @@ import {
   View,
   StatusBar,
   FlatList,
-  Platform
+  Platform,
 } from 'react-native';
 import Text from './components/Text';
 import {LineChart, Path} from 'react-native-svg-charts';
@@ -190,17 +190,17 @@ const App = () => {
           <View style={styles.chart}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <View style ={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'row'}}>
                 <View>
-                  <Text style ={{fontSize: 36, fontWeight: 'bold'}}>291</Text>
+                  <Text style={{fontSize: 36, fontWeight: 'bold'}}>291</Text>
                   <Text>Available</Text>
                 </View>
-                <Text style ={{marginTop: 15, marginLeft: 10}}>-12%</Text>
+                <Text style={{marginTop: 15, marginLeft: 10}}>-12%</Text>
               </View>
-              <View style ={{flexDirection: 'row'}}>
-                <Text style ={{marginTop: 15, marginRight: 10}}>+49%</Text>
+              <View style={{flexDirection: 'row'}}>
+                <Text style={{marginTop: 15, marginRight: 10}}>+49%</Text>
                 <View>
-                  <Text style ={{fontSize: 36, fontWeight: 'bold'}}>481</Text>
+                  <Text style={{fontSize: 36, fontWeight: 'bold'}}>481</Text>
                   <Text>Requests</Text>
                 </View>
               </View>
