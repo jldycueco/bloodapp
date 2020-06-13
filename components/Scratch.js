@@ -6,7 +6,6 @@ import {
   View,
   StatusBar,
   FlatList,
-  Platform
 } from 'react-native';
 import Text from './components/Text';
 import {LineChart, Path} from 'react-native-svg-charts';
@@ -38,7 +37,7 @@ const chart = [
 const styles = StyleSheet.create({
   redBackground: {
     backgroundColor: '#d61b1f',
-    flex: Platform.OS === 'ios' ? 0.5 : 0.9,
+    flex: 0.3,
     alignItems: 'center',
   },
   whiteBackground: {
@@ -48,39 +47,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     height: 200,
     width: '90%',
-    padding: 20,
+    marginBottom: 20,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 5,
   },
   requestContainer: {
     marginTop: 10,
     padding: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    width: '90%',
+    width: 370,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-    backgroundColor: '#fff',
-    elevation: 5,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
   },
   bloodContainer: {
     marginTop: 0,
@@ -98,20 +80,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginBottom: 0,
     marginLeft: 10,
-  },
-  title: {
-    color: '#fff',
-    fontSize: 18,
-    margin: 5,
-    fontWeight: 'bold',
-    padding: 5,
-    marginTop: Platform.OS === 'ios' ? 60 : 10,
-  },
-  buttonTitle: {
-    marginTop: Platform.OS === 'ios' ? 70 : 60,
-    flexDirection: 'row',
-    marginRight: 20,
-    marginLeft: 20,
   },
 });
 
@@ -158,7 +126,7 @@ const renderChart = () => {
       yMin={0}
       yMax={10}
       data={chart}
-      style={{flex: 2}}
+      style={{ flex: 2 }}
       curve={shape.curveMonotoneX}
       svg={{
         stroke: '#D61B1F',
@@ -185,19 +153,19 @@ const App = () => {
   return (
     <>
       <View style={{flex: 1}}>
-        <View style={styles.redBackground}>
-          <Text style={styles.title}>Blood Requests</Text>
+        <View style = {styles.redBackground}>
+          <Text style={{color: '#fff', fontSize: 18, margin: 5, fontWeight: 'bold'}}>Blood Requests</Text>
           <View style={styles.chart}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <View style ={{flexDirection: 'row'}}>
+              <View style ={{flexDirection: 'row', margin: 20}}>
                 <View>
                   <Text style ={{fontSize: 36, fontWeight: 'bold'}}>291</Text>
                   <Text>Available</Text>
                 </View>
                 <Text style ={{marginTop: 15, marginLeft: 10}}>-12%</Text>
               </View>
-              <View style ={{flexDirection: 'row'}}>
+              <View style ={{flexDirection: 'row', margin: 20}}>
                 <Text style ={{marginTop: 15, marginRight: 10}}>+49%</Text>
                 <View>
                   <Text style ={{fontSize: 36, fontWeight: 'bold'}}>481</Text>
@@ -209,12 +177,12 @@ const App = () => {
           </View>
         </View>
         <View style={styles.whiteBackground}>
-          <View style={styles.buttonTitle}>
+          <View style = {{marginTop: 50, flexDirection: 'row', marginRight:20, marginLeft: 20}}>
             <Text>Recent Updates</Text>
-            <View style={{flex: 1}} />
+            <View style = {{flex: 1}} />
             <Text> View All</Text>
           </View>
-          {/* <FlatList
+          <FlatList
             data={Data}
             renderItem={({item}) => (
               <UserContainer
@@ -227,18 +195,7 @@ const App = () => {
               />
             )}
             keyExtractor={item => item.name}
-          /> */}
-          {Data.map((item, index) => (
-            <UserContainer
-              key={index}
-              bloodType={item.bloodType}
-              name={item.name}
-              age={item.age}
-              gender={item.gender}
-              distance={item.distance}
-              time={item.time}
-            />
-          ))}
+          />
         </View>
       </View>
     </>
